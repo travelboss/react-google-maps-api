@@ -19,6 +19,9 @@ import CheckboxBicycling from '../components/checkbox-bicycling'
 import CheckboxGround from '../components/checkbox-ground'
 import CheckboxOptions from '../components/checkbox-options'
 import CheckboxSearchbox from '../components/checkbox-searchbox'
+import CheckboxMarkerClusterer from '../components/checkbox-marker-clusterer'
+import CheckboxMarkerWithLabel from '../components/checkbox-marker-with-label'
+import CheckboxMarkerWithLabelAndClusterer from '../components/checkbox-marker-with-label-and-clusterer'
 
 import SectionData from './section-data'
 import SectionDirections from './section-directions'
@@ -31,6 +34,9 @@ import SectionGround from './section-ground'
 import SectionOptions from './section-options'
 import SectionOverlayView from './section-overlay-view'
 import SectionSearchbox from './section-searchbox'
+import SectionMarkerClusterer from './section-marker-clusterer'
+import SectionMarkerWithLabel from './section-marker-with-label'
+import SectionMarkerWithLabelAndClusterer from './section-marker-with-label-and-clusterer'
 
 import styles from './styles.module.css'
 
@@ -121,6 +127,24 @@ const GoogleMaps = ({ googleMapsApiKey, language }) => (
       <CheckboxSearchbox />
 
       <SectionSearchbox />
+    </Card>
+
+    <Card>
+      <CheckboxMarkerClusterer />
+
+      <SectionMarkerClusterer />
+    </Card>
+
+    <Card>
+      <CheckboxMarkerWithLabel />
+
+      <SectionMarkerWithLabel />
+    </Card>
+
+    <Card>
+      <CheckboxMarkerWithLabelAndClusterer />
+
+      <SectionMarkerWithLabelAndClusterer />
     </Card>
   </LoadScript>
 )

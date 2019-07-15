@@ -1,7 +1,7 @@
 {
   "name": "@react-google-maps/gatsby-example",
   "description": "React Google Maps Gatsby.js example",
-  "version": "1.2.4",
+  "version": "1.4.2",
   "author": {
     "name": "Alexey Lyakhov",
     "email": "justfly1984@gmail.com",
@@ -27,6 +27,10 @@
     "@getify/eslint-plugin-proper-arrows": "8.0.1",
     "@hot-loader/react-dom": "16.8.6",
     "@react-google-maps/api": "1.4.2",
+<<<<<<< master
+=======
+    "@react-google-maps/marker-with-label": "^1.4.2",
+>>>>>>> add examples for marker clusterer and marker with label
     "@types/googlemaps": "3.36.6",
     "@typescript-eslint/eslint-plugin": "1.11.0",
     "@typescript-eslint/parser": "^1.9.0",

@@ -4,3 +4,4 @@ node_modules/
 static/geo.json
 ../react-google-maps-api/dist/*
 ../react-google-maps-api-marker-clusterer/dist/*
+../react-google-maps-api-marker-with-label/dist/*

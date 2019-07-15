@@ -15,7 +15,10 @@ import {
   GROUND_TOGGLE,
   OPTIONS_TOGGLE,
   OVERLAY_VIEW_TOGGLE,
-  STANDALONE_SEARCHBOX_TOGGLE
+  STANDALONE_SEARCHBOX_TOGGLE,
+  MARKER_CLUSTERER_TOGGLE,
+  MARKER_WITH_LABEL_TOGGLE,
+  MARKER_WITH_LABEL_AND_CLUSTERER_TOGGLE
 } from '../action-types'
 
 export const changeLanguage = createAction(CHANGE_LANGUAGE)
@@ -33,3 +36,6 @@ export const toggleGround = createAction(GROUND_TOGGLE)
 export const toggleOptions = createAction(OPTIONS_TOGGLE)
 export const toggleOverlayView = createAction(OVERLAY_VIEW_TOGGLE)
 export const toggleStandaloneSearchbox = createAction(STANDALONE_SEARCHBOX_TOGGLE)
+export const toggleMarkerClusterer = createAction(MARKER_CLUSTERER_TOGGLE)
+export const toggleMarkerWithLabel = createAction(MARKER_WITH_LABEL_TOGGLE)
+export const toggleMarkerWithLabelAndClusterer = createAction(MARKER_WITH_LABEL_AND_CLUSTERER_TOGGLE)

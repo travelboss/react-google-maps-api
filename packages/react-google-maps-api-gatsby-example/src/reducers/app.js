@@ -16,7 +16,10 @@ import {
   GROUND_TOGGLE,
   OPTIONS_TOGGLE,
   OVERLAY_VIEW_TOGGLE,
-  STANDALONE_SEARCHBOX_TOGGLE
+  STANDALONE_SEARCHBOX_TOGGLE,
+  MARKER_CLUSTERER_TOGGLE,
+  MARKER_WITH_LABEL_TOGGLE,
+  MARKER_WITH_LABEL_AND_CLUSTERER_TOGGLE
 } from '../action-types'
 
 const initialState = fromJS({
@@ -34,7 +37,10 @@ const initialState = fromJS({
   ground: false,
   options: false,
   overlayView: false,
-  standaloneSearchbox: false
+  standaloneSearchbox: false,
+  markerClusterer: false,
+  markerWithLabel: false,
+  markerWithLabelAndClusterer: false
 })
 
 export default handleActions({
@@ -97,5 +103,17 @@ export default handleActions({
   [STANDALONE_SEARCHBOX_TOGGLE]: (state, { payload: { standaloneSearchbox } }) =>
     state.merge({
       standaloneSearchbox
+    }),
+  [MARKER_CLUSTERER_TOGGLE]: (state, { payload: { markerClusterer } }) =>
+    state.merge({
+      markerClusterer
+    }),
+  [MARKER_WITH_LABEL_TOGGLE]: (state, { payload: { markerWithLabel } }) =>
+    state.merge({
+      markerWithLabel
+    }),
+  [MARKER_WITH_LABEL_AND_CLUSTERER_TOGGLE]: (state, { payload: { markerWithLabelAndClusterer } }) =>
+    state.merge({
+      markerWithLabelAndClusterer
     })
 }, initialState)

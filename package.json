@@ -28,6 +28,7 @@
     "build:api": "cd packages/react-google-maps-api && yarn build && cd ../..",
     "build:docs": "cd packages/react-google-maps-api && yarn docs:build && cd ../..",
     "build:clusterer": "cd packages/react-google-maps-api-marker-clusterer && yarn build && cd ../..",
+    "build:markerWithLabel": "cd packages/react-google-maps-api-marker-with-label && yarn build && cd ../..",
     "build:gatsby": "cd packages/react-google-maps-api-gatsby-example && yarn build && cd ../..",
     "prebuild:docs": "yarn build:clusterer",
     "prebuild:gatsby": "yarn build:clusterer && yarn build:api",

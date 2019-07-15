@@ -129,7 +129,7 @@ export interface MarkerProps {
   onUnmount?: (marker: google.maps.Marker) => void;
 }
 
-export class Marker extends React.PureComponent<MarkerProps, MarkerState> {
+export class Marker<P extends MarkerProps> extends React.PureComponent<P, MarkerState> {
   static contextType = MapContext
 
   registeredEvents: google.maps.MapsEventListener[] = []
@@ -145,6 +145,10 @@ export class Marker extends React.PureComponent<MarkerProps, MarkerState> {
     }
   }
 
+  createMapMarker = (markerOptions: google.maps.ReadonlyMarkerOptions) => {
+    return new google.maps.Marker(markerOptions)
+  }
+
   componentDidMount() {
     const markerOptions = {
       ...(this.props.options || {}),
@@ -152,7 +156,7 @@ export class Marker extends React.PureComponent<MarkerProps, MarkerState> {
       position: this.props.position
     }
 
-    const marker = new google.maps.Marker(markerOptions)
+    const marker = this.createMapMarker(markerOptions)
 
     if (this.props.clusterer) {
       this.props.clusterer.addMarker(

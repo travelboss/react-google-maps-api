@@ -82,7 +82,7 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@react-google-maps/marker-clusterer": "1.4.1",
+    "@react-google-maps/marker-clusterer": "1.4.2",
     "invariant": "2.2.4"
   },
   "peerDependencies": {

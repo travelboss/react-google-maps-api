@@ -62,33 +62,14 @@ import {
  * @constructor
  * @param {MarkerWithLabelOptions} [opt_options] The optional parameters.
  */
-const defaultOptions = {
-  labelContent: "",
-  labelAnchor: null as google.maps.Point | null, // new google.maps.Point(0, 0),
-  labelClass: "markerLabels",
-  labelStyle: {},
-  labelInBackground: false,
-  labelVisible: true,
-  crossOnDrag: true,
-  clickable: true,
-  draggable: false,
-  optimized: false,
-  crossImage: "//maps.gstatic.com/intl/en_us/mapfiles/drag_cross_67_16.png",
-}
 const MarkerExtended = function(this: MarkerExtended, opt_options: MarkerWithLabelOptions) {
-  const options = {
-    ...defaultOptions,
-    ...opt_options,
-    optimized: false // Optimized rendering is not supported
-  };
-
-  this.label = createOverlayViewExtended(this, options.crossImage); // Bind the label to the marker
+  this.label = createOverlayViewExtended(this, opt_options.crossImage); // Bind the label to the marker
 
   // Call the parent constructor. It calls Marker.setValues to initialize, so all
   // the new parameters are conveniently saved and can be accessed with get/set.
   // Marker.set triggers a property changed event (called "propertyname_changed")
   // that the marker label listens for in order to react to state changes.
-  google.maps.Marker.apply(this, [options]);
+  google.maps.Marker.apply(this, [opt_options]);
 } as any as { new (opt_options: MarkerWithLabelOptions): MarkerExtended; };
 
 function extendMarker() {
@@ -110,7 +91,6 @@ function extendMarker() {
 var init = false;
 function createMarkerExtended(opt_options: MarkerWithLabelOptions) {
   if (!init && typeof google !== 'undefined') {
-    defaultOptions.labelAnchor = new google.maps.Point(0, 0);
     inherits(MarkerExtended, google.maps.Marker);
     extendMarker();
     init = true;

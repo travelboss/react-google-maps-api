@@ -16,14 +16,14 @@ export interface MapEvent {
 }
 
 export type MarkerWithLabelOptions = google.maps.ReadonlyMarkerOptions & {
-  labelAnchor?: google.maps.Point,
-  labelClass?: string,
-  labelStyle?: ElementCSSInlineStyle,
-  labelInBackground?: boolean,
-  labelVisible?: boolean,
-  crossOnDrag?: boolean,
-  clickable?: boolean,
-  draggable?: boolean,
-  optimized?: boolean,
-  crossImage?: string
+  labelAnchor: google.maps.Point,
+  labelClass: string,
+  labelStyle: ElementCSSInlineStyle,
+  labelInBackground: boolean,
+  labelVisible: boolean,
+  crossOnDrag: boolean,
+  clickable: boolean,
+  draggable: boolean,
+  optimized: boolean,
+  crossImage: string
 }

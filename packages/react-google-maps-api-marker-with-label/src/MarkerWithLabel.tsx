@@ -26,16 +26,16 @@ export class MarkerWithLabel extends Marker<MarkerWithLabelProps> {
   createMapMarker = (markerOptions: google.maps.ReadonlyMarkerOptions) => {
     const mo = {
       ...markerOptions,
-      labelAnchor: this.props.labelAnchor,
-      labelClass: this.props.labelClass,
-      labelStyle: this.props.labelStyle,
-      labelInBackground: this.props.labelInBackground,
-      labelVisible: this.props.labelVisible,
-      crossOnDrag: this.props.crossOnDrag,
-      clickable: this.props.clickable,
-      draggable: this.props.draggable,
-      optimized: this.props.optimized,
-      crossImage: this.props.crossImage,
+      labelAnchor: this.props.labelAnchor || new google.maps.Point(0, 0),
+      labelClass: this.props.labelClass || "markerLabels",
+      labelStyle: this.props.labelStyle || {} as ElementCSSInlineStyle,
+      labelInBackground: this.props.labelInBackground || false,
+      labelVisible: this.props.labelVisible === undefined ? true : this.props.labelVisible,
+      crossOnDrag: this.props.crossOnDrag === undefined ? true : this.props.crossOnDrag,
+      clickable: this.props.clickable === undefined ? true : this.props.clickable,
+      draggable: this.props.draggable || false,
+      optimized: false,
+      crossImage: this.props.crossImage || "//maps.gstatic.com/intl/en_us/mapfiles/drag_cross_67_16.png",
       labelContent: this.containerElement
     }
 

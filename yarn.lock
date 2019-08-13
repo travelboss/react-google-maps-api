@@ -2498,6 +2498,14 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
+"@react-google-maps/api@1.5.4":
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-1.5.4.tgz#fdd31a3156679d40a4bb6eb0db82a2f45d725bda"
+  integrity sha512-B0Mn3WxdK/DXy051mEaNDuT+d/GRvzQqyNINnv2LqdBk32xbaJuJu3K1SXX+EiKrEH6q7mHyREzsxOR2fxP7mA==
+  dependencies:
+    "@react-google-maps/marker-clusterer" "1.5.4"
+    invariant "2.2.4"
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"

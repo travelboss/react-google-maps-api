@@ -106,6 +106,8 @@ OverlayViewExtended.prototype.onAdd = function () {
       me.setVisible();
     })
   ];
+
+  this.isAdded_ = true;
 };
 
 // Stop all processing of an event.
@@ -330,19 +332,17 @@ OverlayViewExtended.prototype.draw = function () {
  */
 OverlayViewExtended.prototype.setContent = function () {
   var content = this.marker_.get("labelContent");
-  var previousContent = this.marker_._previousContent;
-  if(previousContent !== content){
-    this.marker_._previousContent = content;
-    if (typeof content.nodeType === "undefined") {
-      this.labelDiv_.innerHTML = content;
-      this.eventDiv_.innerHTML = this.labelDiv_.innerHTML;
-    } else {
+  if (typeof content.nodeType === "undefined") {
+    this.labelDiv_.innerHTML = content;
+    this.eventDiv_.innerHTML = this.labelDiv_.innerHTML;
+  } else {
+    if (!this.labelDiv_.hasChildNodes() || typeof this.labelDiv_.firstChild.nodeType === "undefined") {
       this.labelDiv_.innerHTML = ""; // Remove current content
       this.labelDiv_.appendChild(content);
-      content = content.cloneNode(true);
-      this.eventDiv_.innerHTML = ""; // Remove current content
-      this.eventDiv_.appendChild(content);
     }
+    content = content.cloneNode(true);
+    this.eventDiv_.innerHTML = ""; // Remove current content
+    this.eventDiv_.appendChild(content);
   }
 };
 
@@ -425,11 +425,14 @@ OverlayViewExtended.prototype.setAnchor = function () {
  * @private
  */
 OverlayViewExtended.prototype.setPosition = function () {
-  var position = this.getProjection().fromLatLngToDivPixel(this.marker_.getPosition());
-  this.labelDiv_.style.left = Math.round(position.x) + "px";
-  this.labelDiv_.style.top = Math.round(position.y) + "px";
-  this.eventDiv_.style.left = this.labelDiv_.style.left;
-  this.eventDiv_.style.top = this.labelDiv_.style.top;
+  var projection = this.getProjection();
+  if (projection) {
+    var position = projection.fromLatLngToDivPixel(this.marker_.getPosition());
+    this.labelDiv_.style.left = Math.round(position.x) + "px";
+    this.labelDiv_.style.top = Math.round(position.y) + "px";
+    this.eventDiv_.style.left = this.labelDiv_.style.left;
+    this.eventDiv_.style.top = this.labelDiv_.style.top;
+  }
 };
 
 /**

@@ -1,12 +1,13 @@
-import invariant from "invariant"
+import invariant from 'invariant'
 
 export interface LoadScriptUrlOptions {
-  googleMapsApiKey?: string;
-  googleMapsClientId?: string;
-  version?: string;
-  language?: string;
-  region?: string;
-  libraries?: string[];
+  googleMapsApiKey?: string
+  googleMapsClientId?: string
+  version?: string
+  language?: string
+  region?: string
+  libraries?: string[]
+  channel?: string
 }
 
 export function makeLoadScriptUrl({
@@ -15,13 +16,14 @@ export function makeLoadScriptUrl({
   version = 'weekly',
   language,
   region,
-  libraries
+  libraries,
+  channel,
 }: LoadScriptUrlOptions) {
   const params = []
 
   invariant(
     (googleMapsApiKey && googleMapsClientId) || !(googleMapsApiKey && googleMapsClientId),
-    "You need to specify either googleMapsApiKey or googleMapsClientId for @react-google-maps/api load script to work. You cannot use both at the same time."
+    'You need to specify either googleMapsApiKey or googleMapsClientId for @react-google-maps/api load script to work. You cannot use both at the same time.'
   )
 
   if (googleMapsApiKey) {
@@ -43,7 +45,11 @@ export function makeLoadScriptUrl({
   }
 
   if (libraries && libraries.length) {
-    params.push(`libraries=${libraries.sort().join(",")}`)
+    params.push(`libraries=${libraries.sort().join(',')}`)
+  }
+
+  if (channel) {
+    params.push(`channel=${channel}`)
   }
 
   params.push('callback=initMap')

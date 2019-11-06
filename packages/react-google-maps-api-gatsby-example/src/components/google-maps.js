@@ -16,6 +16,7 @@ import CheckboxOverlayView from '../components/checkbox-overlay-view'
 import CheckboxShapes from '../components/checkbox-shapes'
 import CheckboxDrawing from '../components/checkbox-drawing'
 import CheckboxBicycling from '../components/checkbox-bicycling'
+import CheckboxTransit from '../components/checkbox-transit'
 import CheckboxGround from '../components/checkbox-ground'
 import CheckboxOptions from '../components/checkbox-options'
 import CheckboxSearchbox from '../components/checkbox-searchbox'
@@ -30,6 +31,7 @@ import SectionTraffic from './section-traffic'
 import SectionShapes from './section-shapes'
 import SectionDrawing from './section-drawing'
 import SectionBicycling from './section-bicycling'
+import SectionTransit from './section-transit'
 import SectionGround from './section-ground'
 import SectionOptions from './section-options'
 import SectionOverlayView from './section-overlay-view'
@@ -48,15 +50,15 @@ const loaderId = uniqid('loader-')
 
 const onLoad = () => console.log('script loaded')
 
-const onError = (err) => console.log('onError: ', err)
+const onError = err => console.log('onError: ', err)
 
 const GoogleMaps = ({ googleMapsApiKey, language }) => (
   <LoadScript
     id={loaderId}
     googleMapsApiKey={googleMapsApiKey}
     language={language}
-    region={'EN'}
-    version={'weekly'}
+    region='EN'
+    version='weekly'
     onLoad={onLoad}
     onError={onError}
     loadingElement={Loading}
@@ -106,6 +108,12 @@ const GoogleMaps = ({ googleMapsApiKey, language }) => (
     </Card>
 
     <Card>
+      <CheckboxTransit />
+
+      <SectionTransit />
+    </Card>
+
+    <Card>
       <CheckboxGround />
 
       <SectionGround />
@@ -151,12 +159,12 @@ const GoogleMaps = ({ googleMapsApiKey, language }) => (
 
 GoogleMaps.propTypes = {
   language: PropTypes.string.isRequired,
-  googleMapsApiKey: PropTypes.string.isRequired
+  googleMapsApiKey: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = state => ({
   language: state.getIn(['app', 'language']),
-  googleMapsApiKey: state.getIn(['app', 'googleMapsApiKey'])
+  googleMapsApiKey: state.getIn(['app', 'googleMapsApiKey']),
 })
 
 export default connect(mapStateToProps)(GoogleMaps)

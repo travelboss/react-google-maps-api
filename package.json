@@ -1,6 +1,6 @@
 {
   "name": "@react-google-maps/root",
-  "version": "1.5.4-tb",
+  "version": "1.7.9-tb",
   "private": true,
   "description": "@react-google-maps API integration",
   "license": "MIT",
@@ -13,7 +13,8 @@
     "Ignat Awwit <ignatius.awwit@gmail.com> (https://github.com/awwit)",
     "Uri Klar <uriklar@gmail.com> (https://github.com/uriklar)",
     "Ivan Konev <ivankonev@gmail.com> (https://github.com/ivankonev)",
-    "Daniel K. <klenicak@gmail.com> (https://github.com/fredyc)"
+    "Daniel K. <klenicak@gmail.com> (https://github.com/fredyc)",
+    "Marc Ryan <ryanmq87@gmail.com> (https://github.com/inv8der)"
   ],
   "repository": {
     "type": "git",
@@ -28,33 +29,41 @@
     "build:api": "cd packages/react-google-maps-api && yarn build && cd ../..",
     "build:docs": "cd packages/react-google-maps-api && yarn docs:build && cd ../..",
     "build:clusterer": "cd packages/react-google-maps-api-marker-clusterer && yarn build && cd ../..",
+    "build:infobox": "cd packages/react-google-maps-api-infobox && yarn build && cd ../..",
     "build:markerWithLabel": "cd packages/react-google-maps-api-marker-with-label && yarn build && cd ../..",
     "build:gatsby": "cd packages/react-google-maps-api-gatsby-example && yarn build && cd ../..",
-    "prebuild:docs": "yarn build:clusterer",
-    "prebuild:gatsby": "yarn build:clusterer && yarn build:api",
+    "prebuild:docs": "yarn build:clusterer && yarn build:infobox",
+    "prebuild:gatsby": "yarn build:clusterer && yarn build:infobox && yarn build:api",
     "start:gatsby": "cd packages/react-google-maps-api-gatsby-example && yarn start && cd ../..",
-    "prestart:gatsby": "yarn build:clusterer && yarn build:api",
+    "prestart:gatsby": "yarn build:clusterer && yarn build:infobox && yarn build:api",
     "clean": "rimraf ./yarn.lock ./package-lock.json ./node_modules/ && yarn",
     "lint": "lerna run lint --scope=@react-google-maps/api --stream",
     "storybook": "lerna run start --scope=@react-google-maps/storybook --stream"
   },
   "lint-staged": {
-    "*.{js|ts|tsx}": [
-      "npx eslint --fix",
-      "tsc --noEmit --jsx react --esModuleInterop",
-      "git add -A"
+    "*.{ts|tsx}": [
+      "tsc --noEmit --jsx react --esModuleInterop"
     ]
   },
   "devDependencies": {
-    "@types/react": "16.8.24",
-    "husky": "3.0.2",
-    "jest": "24.8.0",
-    "jest-cli": "24.8.0",
-    "lerna": "3.16.4",
-    "lint-staged": "9.2.1",
-    "ts-jest": "24.0.2",
-    "tsdx": "0.7.2",
-    "typescript": "3.5.3"
+    "eslint": "6.6.0",
+    "@types/react-dom": "16.9.3",
+    "@types/googlemaps": "3.38.0",
+    "@typescript-eslint/eslint-plugin": "2.6.0",
+    "@typescript-eslint/parser": "2.6.0",
+    "acorn": "6.3.0",
+    "husky": "3.0.9",
+    "jest": "24.9.0",
+    "jest-cli": "24.9.0",
+    "lerna": "3.18.3",
+    "lint-staged": "9.4.2",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
+    "ts-jest": "24.1.0",
+    "tsdx": "0.11.0",
+    "typescript": "3.6.3",
+    "rimraf": "3.0.0",
+    "webpack": "4.41.2"
   },
   "husky": {
     "hooks": {

@@ -1,6 +1,6 @@
 {
   "name": "@react-google-maps/marker-with-label",
-  "version": "1.5.4-tb2",
+  "version": "1.7.9-tb",
   "description": "Marker With Label for React.js Google Maps API",
   "license": "MIT",
   "author": {
@@ -46,7 +46,7 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@react-google-maps/api": "1.5.4-tb"
+    "@react-google-maps/api": "1.7.9-tb"
   },
   "devDependencies": {
     "@getify/eslint-plugin-proper-arrows": "8.0.1",

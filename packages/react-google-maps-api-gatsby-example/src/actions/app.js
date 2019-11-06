@@ -12,6 +12,7 @@ import {
   SHAPES_TOGGLE,
   DRAWING_TOGGLE,
   BICYCLING_TOGGLE,
+  TRANSIT_TOGGLE,
   GROUND_TOGGLE,
   OPTIONS_TOGGLE,
   OVERLAY_VIEW_TOGGLE,
@@ -32,10 +33,13 @@ export const toggleTraffic = createAction(TRAFFIC_TOGGLE)
 export const toggleShapes = createAction(SHAPES_TOGGLE)
 export const toggleDrawing = createAction(DRAWING_TOGGLE)
 export const toggleBicycling = createAction(BICYCLING_TOGGLE)
+export const toggleTransit = createAction(TRANSIT_TOGGLE)
 export const toggleGround = createAction(GROUND_TOGGLE)
 export const toggleOptions = createAction(OPTIONS_TOGGLE)
 export const toggleOverlayView = createAction(OVERLAY_VIEW_TOGGLE)
-export const toggleStandaloneSearchbox = createAction(STANDALONE_SEARCHBOX_TOGGLE)
+export const toggleStandaloneSearchbox = createAction(
+  STANDALONE_SEARCHBOX_TOGGLE
+)
 export const toggleMarkerClusterer = createAction(MARKER_CLUSTERER_TOGGLE)
 export const toggleMarkerWithLabel = createAction(MARKER_WITH_LABEL_TOGGLE)
 export const toggleMarkerWithLabelAndClusterer = createAction(MARKER_WITH_LABEL_AND_CLUSTERER_TOGGLE)

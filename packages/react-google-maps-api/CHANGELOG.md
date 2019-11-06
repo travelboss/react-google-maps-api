@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.7.9 fixed types for OverlayView props
+
+## 1.7.8 added panTo prop on `<GoogleMap />` component
+
+## 1.7.7 fix bug in Autocomplete
+
+## 1.7.6 fix types for Data component
+
+## 1.7.1 Added Transport Layer
+
+## 1.7.0 Added Infobox
+
+## 1.6.0 Update dependencies
+
 ## 1.5.4 fix tsdx build issues
 
 ## 1.5.3 fix umd build
@@ -18,7 +32,7 @@
 
 ## 1.2.3 Added MarkerClusterer refactored to typescript
 
-- Removed instans persistance feature due to bugs with google-maps-api.
+- Removed instance persistance feature due to bugs with google-maps-api.
 
 - UMD and ESM builds
 
